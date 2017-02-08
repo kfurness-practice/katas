@@ -22,11 +22,22 @@ test('2: A game of card1 being 2 and card2 being 1 should return card1 as the wi
   t.is(actual, expected)
 })
 
+test('3: A game of card1 being King and card2 being 1 should return card1 as the winner', t=> {
+  const expected = "Card1 Wins"
+
+  const card1 = 'King'
+  const card2 = '1'
+
+  const actual = war.round(card1, card2)
+
+  t.is(actual, expected)
+})
+
 const war = {
   round(card1, card2) {
-    if (card1 === '2') {
-      return 'Card1 Wins'
+    if (card2 === '2') {
+      return 'Card2 Wins'
     }
-    return 'Card2 Wins'
+    return 'Card1 Wins'
   }
 }
