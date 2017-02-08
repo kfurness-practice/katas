@@ -1,17 +1,28 @@
 import { test } from 'ava';
 
-test('An empty string should return 0', t => {
+test('Two empty strings should return 0', t => {
   const expected = 0
 
-  const strand = ""
+  const strand1 = ''
+  const strand2 = ''
 
-  const actual = dna.hammingDistance(strand);
+  const actual = dna.hammingDistance(strand1, strand2);
 
   t.is(actual, expected)
 })
 
+// test('A string with "A" should return 1', t => {
+//   const expected = 1
+//
+//   const strand = "A"
+//
+//   const actual = dna.hammingDistance(strand);
+//
+//   t.is(actual, expected)
+// })
+
 const dna = {
-  hammingDistance(strand) {
+  hammingDistance(strand1, strand2) {
     return 0
   }
 }
