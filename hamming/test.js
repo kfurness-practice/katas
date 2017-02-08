@@ -55,6 +55,39 @@ test('5: First string of "ACT" and a second string of "GGA" should return 0', t 
   t.is(actual, expected)
 })
 
+test('6: First string of "GGACGGATTCTG" and a second string of "AGGACGGATTCT" should return 0', t => {
+  const expected = 9
+
+  const strand1 = 'GGACGGATTCTG'
+  const strand2 = 'AGGACGGATTCT'
+
+  const actual = dna.hammingDistance(strand1, strand2);
+
+  t.is(actual, expected)
+})
+
+test('7: First string of "GGACG" and a second string of "GGTCG" should return 0', t => {
+  const expected = 1
+
+  const strand1 = 'GGACG'
+  const strand2 = 'GGTCG'
+
+  const actual = dna.hammingDistance(strand1, strand2);
+
+  t.is(actual, expected)
+})
+
+test('8: First string of "ACCAGGG" and a second string of "ACTATGG" should return 0', t => {
+  const expected = 2
+
+  const strand1 = 'ACCAGGG'
+  const strand2 = 'ACTATGG'
+
+  const actual = dna.hammingDistance(strand1, strand2);
+
+  t.is(actual, expected)
+})
+
 
 const dna = {
   hammingDistance(strand1, strand2) {
