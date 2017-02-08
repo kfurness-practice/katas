@@ -22,7 +22,7 @@ test('First string of "A" and a second string of "B" should return 1', t => {
   t.is(actual, expected)
 })
 
-test('A string with "A" should return 1', t => {
+test('First string of "A" and a second string of "A" should return 0', t => {
   const expected = 0
 
   const strand1 = "A"
@@ -32,6 +32,18 @@ test('A string with "A" should return 1', t => {
 
   t.is(actual, expected)
 })
+
+test('First string of "GGACTGA" and a second string of "GGACTGA" should return 0', t => {
+  const expected = 0
+
+  const strand1 = "GGACTGA"
+  const strand2 = 'GGACTGA'
+
+  const actual = dna.hammingDistance(strand1, strand2);
+
+  t.is(actual, expected)
+})
+
 
 const dna = {
   hammingDistance(strand1, strand2) {
