@@ -1,6 +1,6 @@
 import { test } from 'ava'
 
-test('1: A game of card1 being 1 and card2 being 2 should return card2 as the winner', t=> {
+test('1a: A game of card1 being 1 and card2 being 2 should return card2 as the winner', t=> {
   const expected = "Card 2 Wins"
 
   const card1 = '1'
@@ -11,7 +11,7 @@ test('1: A game of card1 being 1 and card2 being 2 should return card2 as the wi
   t.is(actual, expected)
 })
 
-test('2: A game of card1 being 2 and card2 being 1 should return card1 as the winner', t=> {
+test('2a: A game of card1 being 2 and card2 being 1 should return card1 as the winner', t=> {
   const expected = "Card 1 Wins"
 
   const card1 = '2'
@@ -22,7 +22,7 @@ test('2: A game of card1 being 2 and card2 being 1 should return card1 as the wi
   t.is(actual, expected)
 })
 
-test('3: A game of card1 being 5 and card2 being 1 should return card1 as the winner', t=> {
+test('3a: A game of card1 being 5 and card2 being 1 should return card1 as the winner', t=> {
   const expected = "Card 1 Wins"
 
   const card1 = '5'
@@ -33,7 +33,7 @@ test('3: A game of card1 being 5 and card2 being 1 should return card1 as the wi
   t.is(actual, expected)
 })
 
-test('4: A game of card1 being 3 and card2 being 2 should return card1 as the winner', t=> {
+test('4a: A game of card1 being 3 and card2 being 2 should return card1 as the winner', t=> {
   const expected = "Card 1 Wins"
 
   const card1 = '3'
@@ -44,7 +44,7 @@ test('4: A game of card1 being 3 and card2 being 2 should return card1 as the wi
   t.is(actual, expected)
 })
 
-test('5: A game of card1 being King and card2 being 2 should return card1 as the winner', t=> {
+test('5a: A game of card1 being King and card2 being 2 should return card1 as the winner', t=> {
   const expected = "Card 1 Wins"
 
   const card1 = 'King'
@@ -55,7 +55,7 @@ test('5: A game of card1 being King and card2 being 2 should return card1 as the
   t.is(actual, expected)
 })
 
-test('6: A game of card1 being Queen and card2 being King should return card2 as the winner', t=> {
+test('6a: A game of card1 being Queen and card2 being King should return card2 as the winner', t=> {
   const expected = "Card 2 Wins"
 
   const card1 = 'Queen'
@@ -66,7 +66,7 @@ test('6: A game of card1 being Queen and card2 being King should return card2 as
   t.is(actual, expected)
 })
 
-test('7 A game of card1 being King and card2 being Ace should return card2 as the winner', t=> {
+test('7a A game of card1 being King and card2 being Ace should return card2 as the winner', t=> {
   const expected = "Card 2 Wins"
 
   const card1 = 'King'
@@ -77,7 +77,7 @@ test('7 A game of card1 being King and card2 being Ace should return card2 as th
   t.is(actual, expected)
 })
 
-test('8 A game of card1 being 8and card2 being 8 should return call for a tie breaker function', t=> {
+test('8a A game of card1 being 8and card2 being 8 should return call for a tie breaker function', t=> {
   const expected = undefined
 
   const card1 = '8'
@@ -88,10 +88,21 @@ test('8 A game of card1 being 8and card2 being 8 should return call for a tie br
   t.is(actual, expected)
 })
 
+test('1b: Should contain a deck of 52 cards', t=> {
+  const expected = 52
+
+  const actual = war.deck.length
+
+  t.is(actual, expected)
+})
+
 const war = {
+  deck: ['Ace of Clubs', '2 of Clubs', '3 of Clubs', '4 of Clubs', '5 of Clubs', '6 of Clubs', '7 of Clubs', '8 of Clubs', '9 of Clubs','10 of Clubs', 'Jack of Clubs', 'Queen of Clubs', 'King of Clubs',  'Ace of Hearts', '2 of Hearts', '3 of Hearts', '4 of Hearts', '5 of Hearts', '6 of Hearts', '7 of Hearts', '8 of Hearts', '9 of Hearts', '10 of Hearts', 'Jack of Hearts', 'Queen of Hearts', 'King of Hearts', 'Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4 of Diamonds', '5 of Diamonds', '6 of Diamonds', '7 of Diamonds', '8 of Diamonds', '9 of Diamonds', '10 of Diamonds', 'Jack of Diamonds', 'Queen of Diamonds', 'King of Diamonds', 'Ace of Clubs', '2 of Clubs', '3 of Clubs', '4 of Clubs', '5 of Clubs', '6 of Clubs', '7 of Clubs', '8 of Clubs', '9 of Clubs', '10 of Clubs', 'Jack of Clubs', 'Queen of Clubs', 'King of Clubs'],
+
   tieBreaker: function() {
     return
   },
+
   round: function(card1, card2) {
     const arr = []
     arr.push(card1, card2)

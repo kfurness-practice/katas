@@ -8,4 +8,5 @@
 * In relation to above, I didn't know what my first test should be because I did not even know how to organize the initial information. Is the first thing I do dividing the cards equally amongst players? Is it just deciding who wins a simple example?
 
 ## Steps I took
-1. Created a function to see who won a single round of war. 
+1. Created a function to see who won a single round of war.
+2. Work on creating a deck of cards
