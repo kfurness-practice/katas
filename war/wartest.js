@@ -99,7 +99,7 @@ test('1b: Should contain a deck of 52 cards', t=> {
 test('2b: Should split the deck in half and give player1 26 cards', t=> {
   const expected = 26
 
-  const actual = war.player1Cards().length
+  const actual = war.playerCards.player1Cards().length
 
   t.is(actual, expected)
 })
@@ -127,8 +127,16 @@ const war = {
     return randomDeck;
   },
 
-  player1Cards: function() {
-    return war.randomizeDeck(war.deck).slice(0, 26)
+  playerCards: {
+    deck: function(deck) {
+      return war.randomizeDeck(deck)
+      },
+    player1Cards: function() {
+      return war.playerCards.deck(war.deck).slice(0, 26)
+    },
+    player2Cards: function() {
+      return war.playerCards.deck(war.deck).slice(26, 52)
+    },
   },
 
   tieBreaker: function() {
