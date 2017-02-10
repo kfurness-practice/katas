@@ -109,9 +109,6 @@ test('3b: Should randomize the deck of cards', t=> {
 
   const actual = war.randomizeDeck(war.deck)
 
-  console.log('actual', actual);
-  console.log(expected);
-
   t.not(actual, expected)
 })
 
@@ -131,7 +128,7 @@ const war = {
   },
 
   player1Cards: function() {
-    return war.deck.slice(0, 26)
+    return war.randomizeDeck(war.deck).slice(0, 26)
   },
 
   tieBreaker: function() {
