@@ -112,6 +112,19 @@ test('3b: Should randomize the deck of cards', t=> {
   t.not(actual, expected)
 })
 
+test('4a: First battle should return first card from each player deck', t=> {
+  const player1Cards = ['3 of Hearts', 'Jack of Clubs']
+  const player2Cards = ['2 of Clubs', 'King of Clubs']
+  const expected = {player1: '3 of Hearts', player2: '2 of Clubs'}
+
+  const actual = war.playCards(player1Cards, player2Cards)
+
+  console.log({expected});
+  console.log({actual});
+
+  t.deepEqual(actual, expected)
+})
+
 
 const war = {
   deck: ['Ace of Clubs', '2 of Clubs', '3 of Clubs', '4 of Clubs', '5 of Clubs', '6 of Clubs', '7 of Clubs', '8 of Clubs', '9 of Clubs','10 of Clubs', 'Jack of Clubs', 'Queen of Clubs', 'King of Clubs',  'Ace of Hearts', '2 of Hearts', '3 of Hearts', '4 of Hearts', '5 of Hearts', '6 of Hearts', '7 of Hearts', '8 of Hearts', '9 of Hearts', '10 of Hearts', 'Jack of Hearts', 'Queen of Hearts', 'King of Hearts', 'Ace of Diamonds', '2 of Diamonds', '3 of Diamonds', '4 of Diamonds', '5 of Diamonds', '6 of Diamonds', '7 of Diamonds', '8 of Diamonds', '9 of Diamonds', '10 of Diamonds', 'Jack of Diamonds', 'Queen of Diamonds', 'King of Diamonds', 'Ace of Clubs', '2 of Clubs', '3 of Clubs', '4 of Clubs', '5 of Clubs', '6 of Clubs', '7 of Clubs', '8 of Clubs', '9 of Clubs', '10 of Clubs', 'Jack of Clubs', 'Queen of Clubs', 'King of Clubs'],
@@ -137,6 +150,11 @@ const war = {
     player2Cards: function() {
       return war.playerCards.deck(war.deck).slice(26, 52)
     },
+  },
+
+  playCards: function(player1Cards, player2Cards) {
+    const round = {player1: player1Cards[0], player2: player2Cards[0]}
+    return round
   },
 
   tieBreaker: function() {
